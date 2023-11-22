@@ -17,5 +17,11 @@ kubectl version --client
 ## k3s installation
 use the install script to grab the latest release:
 
-### wget: ```sh wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash```
-### curl: ```sh curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash ```
+### wget: 
+```sh 
+wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
+### curl: 
+```sh
+curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+```
