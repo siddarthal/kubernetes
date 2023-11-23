@@ -6,4 +6,4 @@ function print() {
   console.log(`${iso}: ${id}`);  
 }
 print(); 
-setInterval(print, 5000);
+setInterval(print, 5001);
