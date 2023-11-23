@@ -3,10 +3,10 @@ name: example1  CI/CD
 on:
   push:
     branches:
-      - main
+      - master
     paths:
-      - "example1/**"
-      - ".github/workflows/example1-service.yml"
+      - "example1/app.js"
+      - "example1/Dockerfile"
 jobs:
   build:
     name: Build
