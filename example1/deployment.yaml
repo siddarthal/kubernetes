@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sids-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sids-dep
+  template:
+    metadata:
+      labels:
+        app: sids-dep
+    spec:
+      containers:
+        - name: sids-dep
+          image: siddarthal/example1
