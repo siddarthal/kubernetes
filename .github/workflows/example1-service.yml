@@ -1,0 +1,27 @@
+name: example1  CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "example1/**"
+      - ".github/workflows/example1-service.yml"
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+    - name: logging in
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build and push
+      uses: docker/build-push-action@v5
+      with:
+        context: example1
+        push: true
+        tags: siddarthal/example1:latest
