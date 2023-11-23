@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
         - name: sids-dep
-          image: siddarthal/example1
+          image: siddarthal/example1:latest
