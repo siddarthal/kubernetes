@@ -52,50 +52,68 @@ curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
 - Store non-confidential (ConfigMaps) and confidential (Secrets) data
 - Consumed via environment vars or volumes
 
-# Commands# Create Kubernetes cluster
+# Commands
+## Create Kubernetes cluster
+```bash
 k3d cluster create -a 2  
-
-# List cluster nodes
+```
+## List cluster nodes
+```bash
 docker ps
-
-# Stop cluster  
+```
+## Stop cluster 
+```bash 
 k3d cluster stop
-
-# Start cluster
+```
+## Start cluster
+```bash
 k3d cluster start 
-
-# Delete cluster
+```
+## Delete cluster
+```bash
 k3d cluster delete
-
-# Get cluster info
+```
+## Get cluster info
+```bash
 kubectl cluster-info  
-
-# Explain Kubernetes resource
+```
+## Explain Kubernetes resource
+```bash
 kubectl explain pod
-
-# List all objects of a resource  
+```
+## List all objects of a resource
+```bash  
 kubectl get pods
-
-# Create a deployment
+```
+## Create a deployment
+```bash
 kubectl create deployment <name> --image=<image>
-
-# View a deployment
+```
+## View a deployment
+```bash
 kubectl describe deployment <name> 
-
-# List deployments
+```
+## List deployments
+```bash
 kubectl get deployments 
-
-# Edit a deployment
+```
+## Edit a deployment
+```bash
 kubectl edit deployment <name>
-
-# Scale a deployment  
+```
+## Scale a deployment  
+```bash
 kubectl scale deployment <name> --replicas=<number>  
-
-# Rollout deployment changes
+```
+## Rollout deployment changes
+```bash
 kubectl rollout restart deployment <name>
-
-# Undo deployment changes
+```
+## Undo deployment changes
+```bash
 kubectl rollout undo deployment <name> 
-
-# Delete deployment  
+```
+## Delete deployment 
+```bash 
 kubectl delete deployment <name>
+```
