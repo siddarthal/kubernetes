@@ -1,12 +1,12 @@
-name: project01 CI/CD
+name: Project01 CI/CD
 
 on:
   push:
     branches:
       - master
     paths:
-      - "projectv01/index.js"
-      - "projectv01/Dockerfile"
+      - "Projectv01/index.js"
+      - "Projectv01/Dockerfile"
 jobs:
   build:
     name: build
@@ -22,7 +22,7 @@ jobs:
       - name: build and push
         uses: docker/build-push-action@v5
         with:
-          context: projectv01
+          context: Projectv01
           push: true
           tags: siddarthal/projectv1:latest
 
