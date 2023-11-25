@@ -13,5 +13,5 @@ spec:
         app: projectv02
     spec:
       containers:
-        - name: projectv01
+        - name: projectv02
           image: siddarthal/projectv2:latest
