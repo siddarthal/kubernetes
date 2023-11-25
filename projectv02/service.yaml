@@ -8,7 +8,7 @@ spec:
     app: projectv02
   ports:
     - name: http
-      nodePort: 30081
+      nodePort: 30080
       protocol: TCP
       port: 1234
       targetPort: 3000
