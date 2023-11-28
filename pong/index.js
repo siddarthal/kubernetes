@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 let counter = 0;
 
-app.get('/pingpong', (req, res) => {
+app.get('/', (req, res) => {
   counter++;
   res.send(`pong ${counter}`);
 });
