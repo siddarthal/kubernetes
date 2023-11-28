@@ -12,4 +12,4 @@ spec:
           service:
             name: pong-svc
             port: 
-              number: 2600
+              number: 3000
