@@ -12,7 +12,7 @@ app.get('/pingpong', (req, res, next) => {
   fs.writeFileSync(sharedFilePath, `${counter}`, { encoding: 'utf8' });
   next();
 });
-
+// done final changes man
 app.get('/log', (req, res) => {
   fs.readFile(sharedFilePath, 'utf8', (err, data) => {
     if (err) {
