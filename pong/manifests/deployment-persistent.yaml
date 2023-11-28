@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pongapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pongapp
+  template:
+    metadata:
+      labels:
+        app: pongapp
+    spec:
+      volumes:
+        - name: shared-pong
+          persistentVolumeClaim:
+            claimName: pong-claim
+      containers:
+      - name: pongapp
+        image: siddarthal/pong:latest
+        volumeMounts:
+          - name: shared-pong
+            mountPath: /usr/src/app/data
