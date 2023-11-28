@@ -1,11 +1,18 @@
-const express = require("express");
-const app = express();
-const port = 3000;
+const Koa = require("koa");
+const app = new Koa();
+const PORT = process.env.PORT || 3000;
+const createRandomString = () => Math.random().toString(36).substr(2, 6);
 
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+const startingString = createRandomString();
+
+app.use(async (ctx) => {
+  if (ctx.path.includes("favicon.ico")) return;
+
+  const stringNow = createRandomString();
+  console.log("--------------------");
+  console.log(`Responding with ${stringNow}`);
+  ctx.body = `${startingString}: ${stringNow}`;
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+console.log(`Started with ${startingString}`);
+app.listen(PORT);
