@@ -5,7 +5,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: pong
+    app: pongapp
   ports:
   - port: 2600
     protocol: TCP
