@@ -13,3 +13,10 @@ spec:
             name: pong-svc
             port: 
               number: 3000
+      - path: /log
+        pathType: Prefix
+        backend:
+          service:
+            name: pong-svc
+            port: 
+              number: 3000
