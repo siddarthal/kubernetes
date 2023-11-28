@@ -3,7 +3,7 @@ const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
-const sharedFilePath = '/data/pingpong_count.txt';
+const sharedFilePath = 'data/pingpong_count.txt';
 
 let counter = 0;
 
