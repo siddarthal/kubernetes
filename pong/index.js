@@ -4,11 +4,13 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const sharedFilePath = 'data/pingpong_count.txt';
 let counter = 0;
+
 app.get('/pingpong', (req, res, next) => {
   counter++;
   fs.writeFileSync(sharedFilePath, `${counter}`, { encoding: 'utf8' });
   next();
 });
+
 app.get('/log', (req, res) => {
   fs.readFile(sharedFilePath, 'utf8', (err, data) => {
     if (err) {
@@ -23,6 +25,7 @@ app.get('/log', (req, res) => {
     }
   });
 });
+
 app.listen(3000, () => {
   console.log('Server listening on port 3000');
 });
