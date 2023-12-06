@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingapp-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pingapp
+  template:
+    metadata:
+      labels:
+        app: pingapp
+    spec:
+      containers:
+      - name: pingapp
+        image: siddarthal/ping:latest
+
