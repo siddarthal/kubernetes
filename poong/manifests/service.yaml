@@ -7,7 +7,6 @@ spec:
   selector:
     app: poongapp
   ports:
-    - name: http
-      port: 3000
+    - port: 4000
       protocol: TCP
       targetPort: 3000
