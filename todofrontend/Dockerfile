@@ -1,6 +1,5 @@
 FROM node:14
-WORKDIR /app
-COPY package.json package-lock.json ./
+WORKDIR /usr/src/app
 RUN npm install -g http-server
 COPY . .
 EXPOSE 8080
