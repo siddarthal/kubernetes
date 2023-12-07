@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <input type="text" id="todoInput">
+  <button onclick="handleTodo()">Create todo</button>
+  <ul id="todoList"></ul>
+</div>
+
+<script>
+  const todoList = [];
+
+  function fetchTodos() {
+    // Replace with your actual API endpoint
+    const url = "http://todoback-svc:80/todos";
+    
+    fetch(url)
+      .then(response => response.json())
+      .then(data => renderTodos(data.todos));
+  }
+
+  function handleTodo() {
+    const text = document.getElementById("todoInput").value.trim();
+    if (text !== "" && text.length <= 140) {
+      todoList.push(text);
+      // Replace with your actual API endpoint
+      const url = "http://todoback-svc:80/todos";
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ todo: [text] }),
+      })
+        .then(response => response.json())
+        .then(data => console.log(data));
+
+      renderTodos();
+      document.getElementById("todoInput").value = "";
+    } else {
+      alert("Todo should not be empty and should be 140 characters or less.");
+    }
+  }
+
+  function renderTodos() {
+    const todoListElement = document.getElementById("todoList");
+    todoListElement.innerHTML = "";
+    todoList.forEach((item, idx) => {
+      const liElement = document.createElement("li");
+      liElement.textContent = item;
+      todoListElement.appendChild(liElement);
+    });
+  }
+
+  fetchTodos();
+</script>
+
+</body>
+</html>
