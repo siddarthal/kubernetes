@@ -24,7 +24,7 @@
 
 <script>
   function fetchTodos() {
-    fetch('http://todoback-svc:80/todos')
+    fetch('http://10.43.41.55/todos')
       .then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -38,7 +38,7 @@
   function handleTodo() {
     const text = document.getElementById('todoInput').value.trim();
     if (text !== '' && text.length <= 140) {
-      fetch('http://todoback-svc:80/todos', {
+      fetch('http://10.43.41.55/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
