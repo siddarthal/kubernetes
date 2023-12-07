@@ -23,46 +23,53 @@
 </div>
 
 <script>
-  const todoList = [];
-
   function fetchTodos() {
-    // Replace with your actual API endpoint
-    const url = "http://todoback-svc:80/todos";
-    
-    fetch(url)
-      .then(response => response.json())
-      .then(data => renderTodos(data.todos));
+    fetch('http://localhost:3001/todos')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => renderTodos(data.todos))
+      .catch(error => console.error('Error fetching todos:', error.message));
   }
 
   function handleTodo() {
-    const text = document.getElementById("todoInput").value.trim();
-    if (text !== "" && text.length <= 140) {
-      todoList.push(text);
-      // Replace with your actual API endpoint
-      const url = "http://todoback-svc:80/todos";
-
-      fetch(url, {
-        method: "POST",
+    const text = document.getElementById('todoInput').value.trim();
+    if (text !== '' && text.length <= 140) {
+      fetch('http://localhost:3001/todos', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ todo: [text] }),
       })
-        .then(response => response.json())
-        .then(data => console.log(data));
-
-      renderTodos();
-      document.getElementById("todoInput").value = "";
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.message) {
+            fetchTodos();
+            document.getElementById('todoInput').value = '';
+          } else {
+            alert('Invalid todo data');
+          }
+        })
+        .catch(error => console.error('Error adding todo:', error.message));
     } else {
-      alert("Todo should not be empty and should be 140 characters or less.");
+      alert('Todo should not be empty and should be 140 characters or less.');
     }
   }
 
-  function renderTodos() {
-    const todoListElement = document.getElementById("todoList");
-    todoListElement.innerHTML = "";
+  function renderTodos(todoList) {
+    const todoListElement = document.getElementById('todoList');
+    todoListElement.innerHTML = '';
     todoList.forEach((item, idx) => {
-      const liElement = document.createElement("li");
+      const liElement = document.createElement('li');
       liElement.textContent = item;
       todoListElement.appendChild(liElement);
     });
