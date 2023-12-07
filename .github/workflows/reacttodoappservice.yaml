@@ -7,6 +7,7 @@ on:
     paths:
       - "your-app-name/src/App.js"
       - "your-app-name/Dockerfile"
+      - "your-app-name/package.json"
 jobs:
   build:
     name: build
