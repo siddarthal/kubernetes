@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - "todofrontend/index.js"
+      - "todofrontend/index.html"
       - "todofrontend/Dockerfile"
 jobs:
   build:
