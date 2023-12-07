@@ -7,5 +7,5 @@ spec:
     app: todoapp
   ports:
   - protocol: TCP
-    port: 4173
-    targetPort: 4173
+    port: 5173
+    targetPort: 5173
