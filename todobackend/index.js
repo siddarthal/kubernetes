@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors({ origin: "http://52.15.218.118:8081/" })); // Enable CORS
+app.use(cors({ origin: "*" })); // Enable CORS
 app.use(bodyParser.json());
 
 let todos = ["red", "blue", "green"]; // Initial hardcoded todos
