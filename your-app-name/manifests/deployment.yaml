@@ -13,6 +13,6 @@ spec:
         app: todoapp
     spec:
       containers:
-      - name: todoappfrontend
-        image: siddarthal/todofrontend:latest
+      - name: todoapp
+        image: siddarthal/reactapp:latest
 
