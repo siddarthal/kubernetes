@@ -24,7 +24,7 @@ jobs:
         with:
             context: ping
             push: true
-            tags: siddarthal/ping:v2
+            tags: siddarthal/ping:v3
 
 
 
